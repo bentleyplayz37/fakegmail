@@ -67,10 +67,30 @@
             border-radius: 50%;
             border: 2px solid #dcdcdc;
             margin-right: 10px;
+            object-fit: cover;
+        }
+        /* Hide the default file input */
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
         }
         .upload-btn {
-            padding: 5px 10px;
+            padding: 5px 15px;
             font-size: 14px;
+            font-weight: bold;
+            color: white;
+            background-color: #1a73e8;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .upload-btn-wrapper input[type="file"] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
             cursor: pointer;
         }
     </style>
@@ -82,7 +102,10 @@
     <div class="email">
         <div class="pfp-container">
             <img class="pfp" src="" alt="Profile Picture" id="pfp" />
-            <input type="file" class="upload-btn" accept="image/*" onchange="loadImage(event)">
+            <div class="upload-btn-wrapper">
+                <button class="upload-btn">Upload Profile Picture</button>
+                <input type="file" accept="image/*" onchange="loadImage(event)">
+            </div>
         </div>
         <h2 contenteditable="true">
             From: Discord Support &lt;support@discord.com&gt;
