@@ -35,6 +35,8 @@
             margin: 0;
             font-size: 18px;
             color: #202124;
+            display: flex;
+            align-items: center;
         }
         .email p {
             margin: 5px 0;
@@ -54,6 +56,23 @@
         a:hover {
             text-decoration: underline;
         }
+        .pfp-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .pfp {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #dcdcdc;
+            margin-right: 10px;
+        }
+        .upload-btn {
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -61,18 +80,30 @@
 <div class="gmail-container">
     <div class="header">Gmail</div>
     <div class="email">
-        <h2 contenteditable="true">From: Discord Support &lt;support@discord.com&gt;</h2>
-        <p contenteditable="true">To: bwn20112@example.com</p>
-        <p contenteditable="true">Date: October 22, 2024</p>
-        <p contenteditable="true">Subject: Important Notice Regarding Your Account</p>
+        <div class="pfp-container">
+            <img class="pfp" src="" alt="Profile Picture" id="pfp" />
+            <input type="file" class="upload-btn" accept="image/*" onchange="loadImage(event)">
+        </div>
+        <h2 contenteditable="true">
+            From: Discord Support &lt;support@discord.com&gt;
+        </h2>
+        <p contenteditable="true">Date: <span contenteditable="true">October 22, 2024</span></p>
+        <p contenteditable="true">Subject: <span contenteditable="true">Important Notice Regarding Your Account</span></p>
         <p contenteditable="true">Dear bwn20112,</p>
         <p contenteditable="true">We hope this message finds you well. We want to remind you that <strong>raiding servers is strictly prohibited</strong> and is considered a violation of our Terms of Service. Engaging in such activities can lead to significant consequences for your account.</p>
         <p contenteditable="true">Additionally, we have noticed instances of <strong>offensive item usage</strong> associated with your account. Please be aware that this behavior is not acceptable and can also result in disciplinary action.</p>
         <p contenteditable="true">We encourage you to review our <a href="https://discord.com/terms">community guidelines</a> to ensure a positive experience for all users. Thank you for your understanding.</p>
         <p contenteditable="true">Best regards,<br>Discord Support Team</p>
     </div>
-    <div class="footer">gmail. © 2024 Gmail</div>
+    <div class="footer" contenteditable="true">gmail. © 2024 Gmail</div>
 </div>
+
+<script>
+    function loadImage(event) {
+        const pfp = document.getElementById('pfp');
+        pfp.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>
 
 </body>
 </html>
